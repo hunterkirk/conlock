@@ -1,5 +1,5 @@
 use std::{
-    ffi::{OsString, OsStr},
+    ffi::OsString,
     os::unix::ffi::{OsStringExt, OsStrExt}, // <-- add this line
     path::{PathBuf},
     sync::{Arc, Mutex},
@@ -27,7 +27,7 @@ async fn main() -> Result<()> {
 
     // Add watch using the recommended method.
     {
-        let mut inotify_guard = inotify.lock().unwrap();
+        let inotify_guard = inotify.lock().unwrap();
         inotify_guard
             .watches()
             .add(&watch_dir, WatchMask::MODIFY | WatchMask::CREATE | WatchMask::DELETE)?;

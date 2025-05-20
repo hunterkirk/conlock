@@ -1,0 +1,12 @@
+[package]
+name = "conlock"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.45", features = ["full", "rt-multi-thread"] }
+clap = { version = "4.1", features = ["derive"] }
+anyhow = "1.0"
+walkdir = "2.3"
+xxhash-rust = { version = "0.8.15", features = ["xxh3"] }
+inotify = "0.11"
